@@ -718,24 +718,63 @@ function App() {
 export default App;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//###Js Program to print prime numbrs from an array
+//###React Program use of for of loop
+function App() {
 
-function isPrime(num) {
-  if (num <= 1) return false; // 0, 1, and negative numbers are not prime
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) return false;
-  }
-  return true;
+  var arr=[];
+  var name='rahulSaini';
+
+  //immediate function
+  
+  (function (){
+	  
+	  //for of loop picks the character by character value from any variable
+    for(let i of name){
+      arr.push(i);
+    }
+
+    })();
+
+  return (
+    <div>
+      <ul style={{listStyle:'none'}}>
+        {arr.map((item,index)=>{
+          return <li key={index}>{item}</li>
+        })}
+      </ul>
+    </div>
+  );
 }
 
-function printPrimesFromArray(arr) {
-  arr.forEach(num => {
-      if (isPrime(num)) {
-          console.log(num);
-      }
-  });
+export default App;
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//###React program use of for in loop 
+
+function App() {
+
+  var arr=[];
+  var obj={
+    name:"bhupinder",
+    age:22,
+    city:"New York"
+  };
+  
+  //for in loop helps to pick the values from an object
+    for(let i in obj){
+      arr.push(`${obj[i]}`);
+    }
+
+  return (
+    <div>
+      <ul style={{listStyle:'none'}}>
+        {arr.map((item,index)=>{
+          return <li key={index}>{item}</li>
+        })}
+      </ul>
+    </div>
+  );
 }
 
-// Example usage:
-const numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15];
-printPrimesFromArray(numbers);
+export default App;
